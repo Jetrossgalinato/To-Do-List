@@ -131,3 +131,13 @@ function addDragAndDropHandlers(li) {
     li.classList.remove("dragging");
   });
 }
+
+function clearCompletedTasks() {
+  document
+    .querySelectorAll("#taskList .task-check:checked")
+    .forEach((checkbox) => {
+      checkbox.parentElement.remove(); // Remove the entire task item
+    });
+
+  saveTasks(); // Save the updated task list
+}

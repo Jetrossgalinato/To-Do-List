@@ -101,3 +101,10 @@ ul {
 #editTaskBtn {
   background: #ffc107;
 }
+#clearCompletedBtn {
+  background: #af212f;
+}
+
+#clearCompletedBtn:hover {
+  background: #8d1420;
+}
