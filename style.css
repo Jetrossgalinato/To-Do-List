@@ -99,7 +99,7 @@ ul {
   background: #dc3545;
 }
 #editTaskBtn {
-  background: #ffc107;
+  background: #e9b516;
 }
 #clearCompletedBtn {
   background: #af212f;
@@ -107,4 +107,61 @@ ul {
 
 #clearCompletedBtn:hover {
   background: #8d1420;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+.dark-mode .container {
+  background: #1e1e1e;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode input[type="text"] {
+  background: #333;
+  color: white;
+  border: 1px solid #666;
+}
+
+.dark-mode button {
+  background: #007bff;
+}
+
+.dark-mode button:hover {
+  background: #0056b3;
+}
+
+.dark-mode .task-item {
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+.dark-mode .task-item.selected {
+  background: #004080;
+  border-color: #007bff;
+}
+
+/* Toggle Button Styling */
+#theme-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  background: #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#theme-toggle:hover {
+  background: #bbb;
+}
+
+.dark-mode #theme-toggle {
+  background: #444;
+  color: white;
 }
