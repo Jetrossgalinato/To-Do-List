@@ -66,6 +66,7 @@ ul {
   border: 1px solid #ddd;
   border-radius: 5px;
   cursor: pointer;
+  width: fit-content; /* Makes sure it only takes necessary space */
 }
 
 .task-item.selected {
