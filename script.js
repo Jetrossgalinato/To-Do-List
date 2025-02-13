@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", loadTasks); // Load tasks on page load
+document.addEventListener("DOMContentLoaded", loadTasks);
+
+let selectedTask = null; // Stores the selected task
 
 function addTask() {
   let taskInput = document.getElementById("taskInput");
@@ -29,14 +31,31 @@ function createTaskElement(taskText, isCompleted) {
         <span class="task-text ${
           isCompleted ? "completed" : ""
         }">${taskText}</span>
-        <div class="task-buttons">
-            <button class="edit-btn" onclick="editTask(this)">Edit</button>
-            <button class="delete-btn" onclick="removeTask(this)">Delete</button>
-        </div>
     `;
 
+  li.addEventListener("click", () => selectTask(li));
   addDragAndDropHandlers(li);
   return li;
+}
+
+function selectTask(li) {
+  if (selectedTask) {
+    selectedTask.classList.remove("selected");
+  }
+
+  if (selectedTask === li) {
+    selectedTask = null;
+  } else {
+    selectedTask = li;
+    li.classList.add("selected");
+  }
+
+  updateActionButtons();
+}
+
+function updateActionButtons() {
+  document.getElementById("editTaskBtn").disabled = !selectedTask;
+  document.getElementById("deleteTaskBtn").disabled = !selectedTask;
 }
 
 function toggleTask(checkbox) {
@@ -45,9 +64,10 @@ function toggleTask(checkbox) {
   saveTasks();
 }
 
-function editTask(button) {
-  let li = button.parentElement.parentElement;
-  let span = li.querySelector(".task-text");
+function editSelectedTask() {
+  if (!selectedTask) return;
+
+  let span = selectedTask.querySelector(".task-text");
   let newText = prompt("Edit your task:", span.innerText);
 
   if (newText !== null && newText.trim() !== "") {
@@ -56,9 +76,12 @@ function editTask(button) {
   }
 }
 
-function removeTask(button) {
-  let li = button.parentElement.parentElement;
-  li.remove();
+function removeSelectedTask() {
+  if (!selectedTask) return;
+
+  selectedTask.remove();
+  selectedTask = null;
+  updateActionButtons();
   saveTasks();
 }
 
@@ -82,6 +105,7 @@ function loadTasks() {
     let li = createTaskElement(task.text, task.completed);
     taskList.appendChild(li);
   });
+  updateActionButtons();
 }
 
 // **Drag-and-Drop Sorting**

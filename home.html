@@ -3,19 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
       <h2>To-Do List</h2>
       <div class="input-container">
-        <input type="text" id="taskInput" placeholder="Add a new task..." />
+        <input type="text" id="taskInput" placeholder="Add a new task" />
         <button onclick="addTask()">Add</button>
       </div>
       <ul id="taskList"></ul>
-      <!-- List where tasks will be added -->
+
+      <div class="task-actions">
+        <button id="editTaskBtn" onclick="editSelectedTask()" disabled>
+          Edit
+        </button>
+        <button id="deleteTaskBtn" onclick="removeSelectedTask()" disabled>
+          Delete
+        </button>
+      </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

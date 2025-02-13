@@ -7,7 +7,7 @@ body {
 
 .container {
   background: white;
-  max-width: 400px;
+  max-width: 650px;
   margin: auto;
   padding: 20px;
   border-radius: 10px;
@@ -21,6 +21,10 @@ h2 {
 .input-container {
   display: flex;
   gap: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 30px;
+  margin-top: 50px;
 }
 
 input[type="text"] {
@@ -43,6 +47,11 @@ button:hover {
   background: #218838;
 }
 
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -54,14 +63,14 @@ ul {
   margin-top: 5px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border: 1px solid #ddd;
   border-radius: 5px;
-  cursor: grab;
+  cursor: pointer;
 }
 
-.task-item.dragging {
-  opacity: 0.5;
+.task-item.selected {
+  border: 2px solid #007bff;
+  background: #e7f3ff;
 }
 
 .task-check {
@@ -78,33 +87,17 @@ ul {
   color: gray;
 }
 
-.task-buttons {
-  display: flex;
-  gap: 5px;
+.task-actions {
+  margin-top: 15px;
 }
 
-.edit-btn {
+.task-actions button {
+  margin: 5px;
+}
+
+#deleteTaskBtn {
+  background: #dc3545;
+}
+#editTaskBtn {
   background: #ffc107;
-  color: black;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
-.edit-btn:hover {
-  background: #e0a800;
-}
-
-.delete-btn {
-  background: red;
-  color: white;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
-.delete-btn:hover {
-  background: darkred;
 }
